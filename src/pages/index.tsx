@@ -1,8 +1,7 @@
-import HomeComponent from 'features/home';
 import React from 'react';
 
 function IndexPage() {
-    return <HomeComponent />;
+    return <h1>In progress</h1>;
 }
 
 export default IndexPage;
