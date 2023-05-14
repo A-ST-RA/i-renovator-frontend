@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 
 import cn from './style.module.sass';
 
-enum CardType {
+export enum CardType {
     Bordered = 'bordered',
     Plain = 'plain',
 }
@@ -11,11 +11,14 @@ enum CardType {
 interface CardProps {
     children: ReactNode;
     type: CardType;
+    customClass?: string;
 }
 
-function Card({ children, type }: CardProps) {
+function Card({ children, type, customClass }: CardProps) {
     return (
-        <div className={clsx(cn.card, type === CardType.Bordered && cn.bordered)}>{children}</div>
+        <div className={clsx(cn.card, type === CardType.Bordered && cn.bordered, customClass)}>
+            {children}
+        </div>
     );
 }
 
