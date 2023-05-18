@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import numberWithSpaces from '@/components/shared/utilities/NumberWithSpaces';
 
@@ -7,11 +7,30 @@ import cn from './style.module.sass';
 
 interface VotingCardInfoProps {
     amountOfVotes: number;
-    // dateOfEndVoting: Date;
+    dateOfEndVoting: string;
 }
 
-function VotingCardInfo({ amountOfVotes }: VotingCardInfoProps) {
-    // TODO: implement dateOfEndVoting
+function VotingCardInfo({ amountOfVotes, dateOfEndVoting }: VotingCardInfoProps) {
+    const [hours, setHours] = useState<number>(0);
+    const [minutes, setMinutes] = useState<number>(0);
+    const [seconds, setSeconds] = useState<number>(0);
+
+    // TODO: Вынести голосовалку отсюда, это ж бизнес логика
+    useEffect(() => {
+        const processedDateOfVoting = new Date(dateOfEndVoting);
+
+        const intervalId = setInterval(() => {
+            const now = new Date().getTime();
+            const timeLeft = processedDateOfVoting.getTime() - now;
+            setHours(Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+            setMinutes(Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)));
+            setSeconds(Math.floor((timeLeft % (1000 * 60)) / 1000));
+        }, 1000);
+
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, []);
 
     return (
         <Card customClass={cn.votingCardInfo} type={CardType.Bordered}>
@@ -23,15 +42,15 @@ function VotingCardInfo({ amountOfVotes }: VotingCardInfoProps) {
             <div className={cn.endOfVoteText}>Голосование закончится через:</div>
             <div className={cn.endOfVoteTime}>
                 <span>
-                    <div className={cn.endOfVoteSegmentTime}>19</div>
+                    <div className={cn.endOfVoteSegmentTime}>{hours}</div>
                     <div className={cn.endOfVoteSegmentType}>часов</div>
                 </span>
                 <span>
-                    <div className={cn.endOfVoteSegmentTime}>18</div>
+                    <div className={cn.endOfVoteSegmentTime}>{minutes}</div>
                     <div className={cn.endOfVoteSegmentType}>минут</div>
                 </span>
                 <span>
-                    <div className={cn.endOfVoteSegmentTime}>33</div>
+                    <div className={cn.endOfVoteSegmentTime}>{seconds}</div>
                     <div className={cn.endOfVoteSegmentType}>секунды</div>
                 </span>
             </div>
