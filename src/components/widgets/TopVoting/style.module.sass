@@ -1,0 +1,23 @@
+@import 'variables'
+@import 'mixins'
+
+.topVoting
+  +max-width()
+  display: flex
+  justify-content: space-between
+
+  & .image
+    object-fit: cover
+    border-radius: 16px
+  
+  & .title
+    font: 700 64px/100% "DM Sans"
+    color: $main-text
+  
+  & .details
+  
+  & .nameAndCreator
+    margin-bottom: 60px
+
+    & .title
+      margin-bottom: 20px

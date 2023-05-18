@@ -5,7 +5,7 @@ import numberWithSpaces from '@/components/shared/utilities/NumberWithSpaces';
 import Card, { CardType } from '../../shared/ui/card';
 import cn from './style.module.sass';
 
-interface VotingCardInfoProps {
+export interface VotingCardInfoProps {
     amountOfVotes: number;
     dateOfEndVoting: string;
 }

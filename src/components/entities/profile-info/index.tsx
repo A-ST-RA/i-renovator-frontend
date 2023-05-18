@@ -4,7 +4,7 @@ import React from 'react';
 import Avatar from '../../shared/ui/avatar';
 import cn from './style.module.sass';
 
-interface ProfileInfoProps {
+export interface ProfileInfoProps {
     imgSrc: string;
     name: string;
     id: string;
