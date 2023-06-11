@@ -1,5 +1,8 @@
+/* eslint-disable no-magic-numbers */
+import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 
+import countDownTimeLeft from '@/components/shared/utilities/CountDownTimeLeft';
 import numberWithSpaces from '@/components/shared/utilities/NumberWithSpaces';
 
 import Card, { CardType } from '../../shared/ui/card';
@@ -8,9 +11,10 @@ import cn from './style.module.sass';
 export interface VotingCardInfoProps {
     amountOfVotes: number;
     dateOfEndVoting: string;
+    customClass?: string;
 }
 
-function VotingCardInfo({ amountOfVotes, dateOfEndVoting }: VotingCardInfoProps) {
+function VotingCardInfo({ amountOfVotes, dateOfEndVoting, customClass }: VotingCardInfoProps) {
     const [hours, setHours] = useState<number>(0);
     const [minutes, setMinutes] = useState<number>(0);
     const [seconds, setSeconds] = useState<number>(0);
@@ -22,18 +26,19 @@ function VotingCardInfo({ amountOfVotes, dateOfEndVoting }: VotingCardInfoProps)
         const intervalId = setInterval(() => {
             const now = new Date().getTime();
             const timeLeft = processedDateOfVoting.getTime() - now;
-            setHours(Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-            setMinutes(Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)));
-            setSeconds(Math.floor((timeLeft % (1000 * 60)) / 1000));
+            const [hours, minutes, seconds] = countDownTimeLeft(timeLeft);
+            setHours(hours);
+            setMinutes(minutes);
+            setSeconds(seconds);
         }, 1000);
 
         return () => {
             clearInterval(intervalId);
         };
-    }, []);
+    }, [dateOfEndVoting]);
 
     return (
-        <Card customClass={cn.votingCardInfo} type={CardType.Bordered}>
+        <Card customClass={clsx(cn.votingCardInfo, customClass)} type={CardType.Bordered}>
             <div className={cn.votesData}>
                 <div className={cn.amountOfVotesText}>Уже оценило:</div>
                 <div className={cn.amountOfVotes}>{numberWithSpaces(amountOfVotes)}</div>

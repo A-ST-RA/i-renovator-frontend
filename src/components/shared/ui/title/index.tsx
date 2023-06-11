@@ -3,6 +3,7 @@ import React from 'react';
 
 export interface ITitleProps {
     title: string;
+    // eslint-disable-next-line no-magic-numbers
     level: 1 | 2 | 3 | 4 | 5 | 6;
     // customClass?: string;
 }

@@ -19,9 +19,18 @@ interface IButtonProps {
     url?: string;
     isSubmit?: boolean;
     buttonType?: ButtonType;
+    customClass?: string;
 }
 
-function Button({ text, onClick, url, isSubmit = false, buttonType, icon }: IButtonProps) {
+function Button({
+    text,
+    onClick,
+    url,
+    isSubmit = false,
+    buttonType,
+    icon,
+    customClass,
+}: IButtonProps) {
     if (buttonType === ButtonType.Link && url) {
         return <Link className={clsx(cn.button)} href={url} about="_blank" />;
     }
@@ -29,7 +38,7 @@ function Button({ text, onClick, url, isSubmit = false, buttonType, icon }: IBut
     if (buttonType === ButtonType.Circled && icon) {
         return (
             <button
-                className={clsx(cn.button, cn.circled)}
+                className={clsx(cn.button, cn.circled, customClass)}
                 type={isSubmit ? 'submit' : 'button'}
                 onClick={onClick}
             >
@@ -40,8 +49,12 @@ function Button({ text, onClick, url, isSubmit = false, buttonType, icon }: IBut
 
     return (
         <button
-            className={clsx(cn.button, buttonType === ButtonType.Bordered && cn.bordered)}
             type={isSubmit ? 'submit' : 'button'}
+            className={clsx(
+                cn.button,
+                buttonType === ButtonType.Bordered && cn.bordered,
+                customClass
+            )}
             onClick={onClick}
         >
             {text}
