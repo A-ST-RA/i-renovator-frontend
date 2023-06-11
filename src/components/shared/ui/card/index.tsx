@@ -16,7 +16,14 @@ interface CardProps {
 
 function Card({ children, type, customClass }: CardProps) {
     return (
-        <div className={clsx(cn.card, type === CardType.Bordered && cn.bordered, customClass)}>
+        <div
+            className={clsx(
+                cn.card,
+                cn.plain,
+                type === CardType.Bordered && cn.bordered,
+                customClass
+            )}
+        >
             {children}
         </div>
     );

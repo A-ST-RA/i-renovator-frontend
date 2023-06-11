@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import Card from '.';
+import Card, { CardType } from '.';
 
 const meta: Meta<typeof Card> = {
     title: 'ui/Сard',
@@ -9,6 +9,10 @@ const meta: Meta<typeof Card> = {
 
 type Story = StoryObj<typeof Card>;
 
-export const Index: Story = {};
+export const Index: Story = {
+    args: {
+        type: CardType.Plain,
+    },
+};
 
 export default meta;
