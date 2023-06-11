@@ -1,5 +1,13 @@
 import React from 'react';
 
+import Card, { CardType } from '@/components/shared/ui/card';
+
+import cn from './style.module.sass';
+
 export default function TopAuthorCard() {
-    return <h1>WIP</h1>;
+    return (
+        <Card type={CardType.Plain} customClass={cn.topAuthorCard}>
+            WIP
+        </Card>
+    );
 }
