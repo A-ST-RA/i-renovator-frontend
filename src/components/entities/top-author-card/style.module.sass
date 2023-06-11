@@ -5,5 +5,37 @@
   height: 250px
   min-width: 192px
   width: 192px
+  display: flex
+  flex-direction: column
   
   padding: 12px 10px 9px
+
+  & .rankPlace
+    padding-bottom: 15px
+    border-bottom: 1px solid $neutral-text-green
+    margin-bottom: 40px
+  
+  & .avatar
+    width: 64px
+    height: 64px
+  
+  & .authorDetails
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-between
+    flex-grow: 1
+    
+  & .authorInfo
+    font-family: 'Poppins'
+    text-align: center
+  
+  & .authorName
+  
+  & .votesAmount
+    font-size: 12px
+    line-height: 200%
+    font-weight: 600
+      
+    & .votesAmountText
+      font-weight: 500
