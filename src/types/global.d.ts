@@ -5,7 +5,10 @@ declare module '*.module.sass' {
     export default styles;
 }
 
-declare module '*.svg';
+declare module '*.svg' {
+    const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;
+    export default ReactComponent;
+}
 
 type Expand<T> = T extends infer O ? { [K in keyof O]: O[K] } : never;
 
