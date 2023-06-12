@@ -18,15 +18,15 @@ interface ITopAuthorsListProps {
 
 export default function TopAuthorsList({ authors }: ITopAuthorsListProps) {
     const splideOptions = {
-        // arrows: false,
         gap: '32px',
         drag: true,
         pagination: false,
+        mediaQuery: 'max' as 'min' | 'max' | undefined,
         perMove: 1,
-        updateOnMove: false,
-        perPage: 2,
-        autoScroll: {
-            speed: 2,
+        breakpoints: {
+            991: {
+                gap: '16px',
+            },
         },
     };
 

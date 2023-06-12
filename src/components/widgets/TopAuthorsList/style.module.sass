@@ -11,23 +11,29 @@
         margin-top: 32px
         display: flex
         justify-content: center
-
-        +desktop
-            display: none
     
     :global(.splide__list)
         margin: 0
         padding: 0
-
+        
         display: flex
         flex-direction: row
         justify-content: space-between
-        width: 100%
+
+    :global(.splide__track)
+        overflow: hidden
 
     :global(.splide__slide)
         user-select: none
         display: inline-block
+        
 
+    :global(.splide__arrow)
+        &:active
+            
+    :global(.splide__sr)
+        display: none
+    
     :global(.splide__arrow--prev)
         margin-right: 24px
         transform: rotate(180deg)
