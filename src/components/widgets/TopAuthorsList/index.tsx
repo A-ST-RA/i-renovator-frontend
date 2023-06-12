@@ -3,6 +3,7 @@ import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import React from 'react';
 
 import TopAuthorCard from '@/components/entities/top-author-card';
+import Button, { ButtonType } from '@/components/shared/ui/button';
 
 import cn from './style.module.sass';
 
@@ -18,9 +19,7 @@ interface ITopAuthorsListProps {
 export default function TopAuthorsList({ authors }: ITopAuthorsListProps) {
     const splideOptions = {
         // arrows: false,
-        type: 'loop',
-        rewind: true,
-        gap: '40px',
+        gap: '32px',
         drag: true,
         pagination: false,
         perMove: 1,
@@ -42,12 +41,16 @@ export default function TopAuthorsList({ authors }: ITopAuthorsListProps) {
                     ))}
                 </SplideTrack>
                 <div className="splide__arrows">
-                    <button type="button" className="splide__arrow splide__arrow--prev">
-                        Prev
-                    </button>
-                    <button type="button" className="splide__arrow splide__arrow--next">
-                        Next
-                    </button>
+                    <Button
+                        buttonType={ButtonType.WhiteSpace}
+                        icon="/images/svg/arrow.svg"
+                        customClass="splide__arrow splide__arrow--prev"
+                    />
+                    <Button
+                        buttonType={ButtonType.Circled}
+                        icon="/images/svg/arrow.svg"
+                        customClass="splide__arrow splide__arrow--next"
+                    />
                 </div>
             </Splide>
         </div>

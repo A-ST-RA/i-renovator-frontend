@@ -27,7 +27,10 @@ export default function TopAuthorCard({ rankPlace, author }: ITopAuthorCardProps
         [author.sumVotesAmount]
     );
     const votesText = useMemo(
-        () => numberedWords(author.sumVotesAmount, ['голос', 'голоса', 'голосов']),
+        () =>
+            author.sumVotesAmount >= 90000
+                ? 'голосов'
+                : numberedWords(author.sumVotesAmount, ['голос', 'голоса', 'голосов']),
         [author.sumVotesAmount]
     );
 

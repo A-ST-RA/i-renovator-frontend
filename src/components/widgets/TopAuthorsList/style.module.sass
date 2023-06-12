@@ -1,6 +1,20 @@
 @import 'variables'
+@import 'media'
 
 .topAuthorsList
+    max-width: 1120px
+
+    +desktop
+        margin: 0 auto
+
+    :global(.splide__arrows)
+        margin-top: 32px
+        display: flex
+        justify-content: center
+
+        +desktop
+            display: none
+    
     :global(.splide__list)
         margin: 0
         padding: 0
@@ -13,3 +27,7 @@
     :global(.splide__slide)
         user-select: none
         display: inline-block
+
+    :global(.splide__arrow--prev)
+        margin-right: 24px
+        transform: rotate(180deg)

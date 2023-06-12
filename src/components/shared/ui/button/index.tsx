@@ -10,11 +10,12 @@ export enum ButtonType {
     Bordered = 'bordered',
     Link = 'link',
     Circled = 'circled',
+    WhiteSpace = 'whitespace',
 }
 
 interface IButtonProps {
-    text: string;
-    onClick: (e: unknown) => void;
+    text?: string;
+    onClick?: (e: unknown) => void;
     icon?: string;
     url?: string;
     isSubmit?: boolean;
@@ -35,11 +36,16 @@ function Button({
         return <Link className={clsx(cn.button)} href={url} about="_blank" />;
     }
 
-    if (buttonType === ButtonType.Circled && icon) {
+    if ((buttonType === ButtonType.Circled || buttonType === ButtonType.WhiteSpace) && icon) {
         return (
             <button
-                className={clsx(cn.button, cn.circled, customClass)}
                 type={isSubmit ? 'submit' : 'button'}
+                className={clsx(
+                    cn.button,
+                    buttonType === ButtonType.Circled && cn.circled,
+                    buttonType === ButtonType.WhiteSpace && cn.whitespace,
+                    customClass
+                )}
                 onClick={onClick}
             >
                 <Image src={icon} alt={icon} width={24} height={24} />
