@@ -15,6 +15,7 @@
         "clean": "rimraf .next",
         "api-codegen": "openapi --input ./swagger.json --output ./src/api --request ./src/api/request.ts --useOptions",
         "storybook": "kill-port 6006 && storybook dev -p 6006 --quiet",
+        "storybook-prod": "kill-port 6006 && storybook dev -p 80 --quiet",
         "build-storybook": "storybook build",
         "build-tokens": "style-dictionary build --config tokens.config.json"
     },
