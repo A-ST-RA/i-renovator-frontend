@@ -25,15 +25,9 @@ export const Index: Story = {
 
 export const Bordered: Story = {
     args: {
-        icon: '/Mock-Heart.svg',
-    },
-};
-
-export const Link: Story = {
-    args: {
-        url: '#',
-        buttonType: ButtonType.Link,
+        // icon: '/Mock-Heart.svg',
         text: sampleText,
+        buttonType: ButtonType.Bordered,
     },
 };
 

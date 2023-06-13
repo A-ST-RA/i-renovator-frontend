@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 
 import cn from './style.module.sass';
@@ -8,7 +7,6 @@ import cn from './style.module.sass';
 export enum ButtonType {
     Normal = 'normal',
     Bordered = 'bordered',
-    Link = 'link',
     Circled = 'circled',
     WhiteSpace = 'whitespace',
 }
@@ -17,25 +15,12 @@ interface IButtonProps {
     text?: string;
     onClick?: (e: unknown) => void;
     icon?: string;
-    url?: string;
     isSubmit?: boolean;
     buttonType?: ButtonType;
     customClass?: string;
 }
 
-function Button({
-    text,
-    onClick,
-    url,
-    isSubmit = false,
-    buttonType,
-    icon,
-    customClass,
-}: IButtonProps) {
-    if (buttonType === ButtonType.Link && url) {
-        return <Link className={clsx(cn.button)} href={url} about="_blank" />;
-    }
-
+function Button({ text, onClick, isSubmit = false, buttonType, icon, customClass }: IButtonProps) {
     if ((buttonType === ButtonType.Circled || buttonType === ButtonType.WhiteSpace) && icon) {
         return (
             <button

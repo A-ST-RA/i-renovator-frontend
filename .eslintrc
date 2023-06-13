@@ -2,6 +2,7 @@
     "root": true,
     "extends": ["webpractik", "next", "next/core-web-vitals"],
     "rules": {
-        "lodash/import-scope": "off"
+        "lodash/import-scope": "off",
+        "import/no-extraneous-dependencies": "off",
     }
 }
