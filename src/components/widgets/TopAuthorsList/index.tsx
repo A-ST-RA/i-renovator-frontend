@@ -23,7 +23,11 @@ export default function TopAuthorsList({ authors }: ITopAuthorsListProps) {
         pagination: false,
         mediaQuery: 'max' as 'min' | 'max' | undefined,
         perMove: 1,
+        arrows: false,
         breakpoints: {
+            900: {
+                arrows: true,
+            },
             991: {
                 gap: '16px',
             },
