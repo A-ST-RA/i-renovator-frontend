@@ -18,17 +18,19 @@ interface ITopAuthorCardProps {
     };
 }
 
+const nineteenVotes = 90000;
+
 export default function TopAuthorCard({ rankPlace, author }: ITopAuthorCardProps) {
     const sumOfVotes = useMemo(
         () =>
-            author.sumVotesAmount < 90000
+            author.sumVotesAmount < nineteenVotes
                 ? numberWithSpaces(author.sumVotesAmount)
                 : 'Более 90 000',
         [author.sumVotesAmount]
     );
     const votesText = useMemo(
         () =>
-            author.sumVotesAmount >= 90000
+            author.sumVotesAmount >= nineteenVotes
                 ? 'голосов'
                 : numberedWords(author.sumVotesAmount, ['голос', 'голоса', 'голосов']),
         [author.sumVotesAmount]

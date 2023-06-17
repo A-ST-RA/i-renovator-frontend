@@ -19,7 +19,7 @@ function DropdownIndicator(props: DropdownIndicatorProps) {
 
 interface ICustomSelectProps {
     options?: IOption[];
-    onChange?: (e: any) => void;
+    onChange?: (e: unknown) => void;
 }
 
 export default function CustomSelect({ options, onChange }: ICustomSelectProps) {
