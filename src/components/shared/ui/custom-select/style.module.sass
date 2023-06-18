@@ -5,19 +5,29 @@
     \:global(.react-select__control)
         border: 2px solid $main-button-background
         border-radius: 90px
-        padding: 10px 12px 10px 16px
+        padding: 10px 20px 10px 16px
         transition: border-radius 0
         box-shadow: none
-        
+
         &:hover
             border-color: $main-button-background
-        
+
     \:global(.react-select__control--menu-is-open)
         border-top-right-radius: 25px
         border-top-left-radius: 25px
         border-bottom-right-radius: 0
         border-bottom-left-radius: 0
         border-bottom: none
+        position: relative
+
+        &::after
+          content: ''
+          position: absolute
+          bottom: 0
+          display: block
+          border-bottom: 1px solid $accent-text-black
+          left: 26px
+          right: 26px
 
     \:global(.react-select__menu)
         margin-top: 0
@@ -30,6 +40,10 @@
         transform-origin: top
     
     \:global(.react-select__option)
+        padding-left: 26px
+    
+    \:global(.react-select__menu-notice--no-options)
+        text-align: left
         padding-left: 26px
 
 

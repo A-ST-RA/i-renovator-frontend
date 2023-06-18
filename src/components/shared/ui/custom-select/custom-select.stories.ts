@@ -28,4 +28,30 @@ export const Index: Story = {
     },
 };
 
+export const NoOptions: Story = {
+    args: {
+        options: [],
+    },
+};
+
+export const CustomPlaceholder: Story = {
+    args: {
+        options: [
+            {
+                label: 'Новичек',
+                value: 'data1',
+            },
+            {
+                label: 'Средний',
+                value: 'data2',
+            },
+            {
+                label: 'Опытный',
+                value: 'data3',
+            },
+        ],
+        placeholder: 'Выберете ваш уровень',
+    },
+};
+
 export default meta;

@@ -22,6 +22,7 @@ function DropdownIndicator(props: DropdownIndicatorProps) {
 interface ICustomSelectProps {
     options?: IOption[];
     noOptionsMessage?: string;
+    placeholder?: string;
     onChange?: (e: unknown) => void;
 }
 
@@ -29,6 +30,7 @@ export default function CustomSelect({
     options,
     onChange,
     noOptionsMessage = 'Пусто',
+    placeholder = 'Выберете город',
 }: ICustomSelectProps) {
     return (
         <div>
@@ -36,6 +38,7 @@ export default function CustomSelect({
                 className={clsx(cn.customSelect)}
                 classNamePrefix="react-select"
                 options={options}
+                placeholder={placeholder}
                 noOptionsMessage={() => noOptionsMessage}
                 components={{ DropdownIndicator, IndicatorSeparator: () => null }}
                 onChange={onChange}
