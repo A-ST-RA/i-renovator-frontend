@@ -1,6 +1,28 @@
 @import 'variables'
 
   
-// TODO: Вынести в глобальные стили селекта
 .customSelect
-    padding: 10px 12px 10px 16px
+    \:global(.react-select__control)
+        border: 2px solid $main-button-background
+        border-radius: 90px
+        padding: 10px 12px 10px 16px
+        transition: border-radius 0
+        box-shadow: none
+        
+        &:hover
+            border-color: $main-button-background
+        
+    \:global(.react-select__control--menu-is-open)
+        border-top-right-radius: 25px
+        border-top-left-radius: 25px
+        border-bottom-right-radius: 0
+        border-bottom-left-radius: 0
+        border-bottom: none
+
+    \:global(.react-select__menu)
+        margin-top: 0
+        border-top-right-radius: 0
+        border-top-left-radius: 0
+        border: 2px solid $main-button-background
+        border-top: none
+        box-shadow: none
