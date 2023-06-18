@@ -26,3 +26,15 @@
         border: 2px solid $main-button-background
         border-top: none
         box-shadow: none
+        animation: 0.1s ease-in-out showMenu
+        transform-origin: top
+    
+    \:global(.react-select__option)
+        padding-left: 26px
+
+
+@keyframes showMenu
+  0%
+    transform: translateY(-2rem) scaleY(0)
+  100% 
+    transform: translateY(0) scaleY(100%)
