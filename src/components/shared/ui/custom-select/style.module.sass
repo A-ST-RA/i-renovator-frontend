@@ -3,14 +3,29 @@
   
 .customSelect
     \:global(.react-select__control)
+        position: relative
         border: 2px solid $main-button-background
         border-radius: 90px
         padding: 10px 20px 10px 16px
         transition: border-radius 0
         box-shadow: none
+        height: 40px
 
         &:hover
             border-color: $main-button-background
+
+    \:global(.react-select__indicator)
+        position: absolute
+        top: 50%
+        padding: 0
+        height: 20px
+        transform: translateY(-50%)
+        right: 26px
+    
+    \:global(.react-select__value-container)
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
 
     \:global(.react-select__control--menu-is-open)
         border-top-right-radius: 25px

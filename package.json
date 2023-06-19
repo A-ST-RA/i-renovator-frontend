@@ -5,6 +5,7 @@
     "scripts": {
         "prepare": "husky install",
         "build": "next build",
+        "json-server": "json-server --watch db.json",
         "dev": "npm run clean && kill-port 3000 && next dev -p 3000",
         "prod": "next start",
         "type-check": "tsc --project tsconfig.json --noEmit --pretty",
@@ -28,6 +29,7 @@
         "clsx": "^1.2.1",
         "dompurify": "3.0.1",
         "form-data": "4.0.0",
+        "json-server": "0.17.3",
         "lodash": "4.17.21",
         "mobx": "^6.9.0",
         "mobx-react-lite": "3.4.3",

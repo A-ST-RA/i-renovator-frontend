@@ -24,25 +24,26 @@ interface ICustomSelectProps {
     noOptionsMessage?: string;
     placeholder?: string;
     onChange?: (e: unknown) => void;
+    onInputChange?: (inputValue: string) => void;
 }
 
 export default function CustomSelect({
     options,
     onChange,
+    onInputChange,
     noOptionsMessage = 'Пусто',
     placeholder = 'Выберете город',
 }: ICustomSelectProps) {
     return (
-        <div>
-            <Select
-                className={clsx(cn.customSelect)}
-                classNamePrefix="react-select"
-                options={options}
-                placeholder={placeholder}
-                noOptionsMessage={() => noOptionsMessage}
-                components={{ DropdownIndicator, IndicatorSeparator: () => null }}
-                onChange={onChange}
-            />
-        </div>
+        <Select
+            className={clsx(cn.customSelect)}
+            classNamePrefix="react-select"
+            options={options}
+            placeholder={placeholder}
+            noOptionsMessage={() => noOptionsMessage}
+            components={{ DropdownIndicator, IndicatorSeparator: () => null }}
+            onInputChange={onInputChange}
+            onChange={onChange}
+        />
     );
 }

@@ -27,7 +27,9 @@ function Header() {
                     </li>
                 </ul>
             </nav>
-            <div className={cn.actions}>wip search bar</div>
+            <div className={cn.actions}>
+                <div className={cn.actionSelect}>wip select</div>
+            </div>
         </header>
     );
 }
