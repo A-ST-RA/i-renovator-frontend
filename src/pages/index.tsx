@@ -1,10 +1,14 @@
 /* eslint-disable no-magic-numbers */
 import React from 'react';
 
-import Header from '@/components/widgets/header';
+import Layout from '@/components/layout';
 
 function IndexPage() {
-    return <Header />;
+    return (
+        <Layout>
+            <h1>wip</h1>
+        </Layout>
+    );
 }
 
 export default IndexPage;
