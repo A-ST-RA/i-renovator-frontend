@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable unused-imports/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 
@@ -11,17 +8,18 @@ import CustomSelect from '@/components/shared/ui/custom-select';
 function CitySearch() {
     const [city, setCity] = useState('');
 
-    const { data, isLoading } = useQuery({
+    const { data = [], isLoading } = useQuery({
         queryFn: () => getCities(city),
-        queryKey: [ReactQueryKeys.CITIES_LIST],
+        queryKey: [ReactQueryKeys.CITIES_LIST, city],
+        staleTime: 3000,
+        select: data =>
+            data.map(el => ({
+                label: el.name,
+                value: el.code,
+            })),
     });
 
-    return (
-        <CustomSelect
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            onInputChange={setCity}
-        />
-    );
+    return <CustomSelect options={data} isLoading={isLoading} onInputChange={setCity} />;
 }
 
 export default CitySearch;

@@ -1,8 +1,10 @@
 /* eslint-disable no-magic-numbers */
 import React from 'react';
 
+import CitySearch from '@/components/features/city-search';
+
 function IndexPage() {
-    return <h1>wip</h1>;
+    return <CitySearch />;
 }
 
 export default IndexPage;
