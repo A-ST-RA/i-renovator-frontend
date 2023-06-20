@@ -1,8 +1,10 @@
+import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 import CitySearch from '@/components/features/city-search';
+import BurgerMenu from '@/components/shared/ui/burger-menu';
 import Button from '@/components/shared/ui/button';
 
 import cn from './style.module.sass';
@@ -18,7 +20,7 @@ function Header() {
                     width={153}
                     height={45}
                 />
-                <nav className={cn.navigation}>
+                <nav className={clsx(cn.navigation, cn.desktopNavigation)}>
                     <ul className={cn.menuList}>
                         <li className={cn.menuLink}>
                             <Link href="/projects">Проекты</Link>
@@ -31,6 +33,9 @@ function Header() {
                         </li>
                     </ul>
                 </nav>
+                <div className={cn.burgerMenu}>
+                    <BurgerMenu />
+                </div>
                 <div className={cn.actions}>
                     <div className={cn.actionSelect}>
                         <CitySearch />

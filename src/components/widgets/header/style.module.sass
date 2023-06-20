@@ -10,6 +10,7 @@
     justify-content: space-between
     align-items: center
     max-width: 1120px
+    padding-right: 10px
     margin: 0 auto
 
     & .logo
@@ -20,15 +21,23 @@
         justify-content: flex-end
 
         & .actionSelect
-            margin-right: 10px
-            width: 265px
+            display: none
+            +desktop
+                display: block
+                margin-right: 10px
+                width: 265px
 
         & .actionButton
             padding-top: 6px
             height: 40px
 
+    & .burgerMenu
+        display: block
+        +desktop
+            display: none
+
     & .navigation
-        margin: 0 20px
+        margin: 0 40px
         flex-grow: 1
         & .menuList
             display: flex
@@ -38,3 +47,11 @@
         
             & .menuLink
                 margin-right: 10px
+                
+                &:last-child
+                    margin-right: 0
+        &.desktopNavigation
+            display: none
+
+            +desktop
+                display: block

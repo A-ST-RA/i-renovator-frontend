@@ -43,6 +43,10 @@
 	+min-max-width($desktop, $desktop-lg)
 		@content
 
+@mixin desktop-md-mobile()
+	+max-width($desktop)
+		@content
+
 // 992px <= desktop-sm <= 1024px
 @mixin desktop-sm()
 	+min-max-width($tablet, $desktop)
