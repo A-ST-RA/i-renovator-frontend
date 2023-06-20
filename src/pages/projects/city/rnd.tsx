@@ -1,10 +1,8 @@
 /* eslint-disable no-magic-numbers */
 import React from 'react';
 
-import Header from '@/components/widgets/header';
-
 function IndexPage() {
-    return <Header />;
+    return <h1>Ростов-На-Дону</h1>;
 }
 
 export default IndexPage;

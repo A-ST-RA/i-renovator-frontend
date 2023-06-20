@@ -19,7 +19,7 @@ interface ICustomSelectProps {
     options?: IOption[];
     noOptionsMessage?: string;
     placeholder?: string;
-    onChange?: (e: unknown) => void;
+    onChange?: (e: IOption) => void;
     onInputChange?: (inputValue: string) => void;
     isLoading?: boolean;
 }
@@ -42,7 +42,7 @@ export default function CustomSelect({
             noOptionsMessage={() => noOptionsMessage}
             components={{ DropdownIndicator, IndicatorSeparator: () => null }}
             onInputChange={onInputChange}
-            onChange={onChange}
+            onChange={onChange as (newValue: unknown) => void}
         />
     );
 }
