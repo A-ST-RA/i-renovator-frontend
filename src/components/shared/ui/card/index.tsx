@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { ReactNode } from 'react';
+import React, { CSSProperties, ReactNode } from 'react';
 
 import cn from './style.module.sass';
 
@@ -12,11 +12,13 @@ interface CardProps {
     children: ReactNode;
     type: CardType;
     customClass?: string;
+    style?: CSSProperties;
 }
 
-function Card({ children, type, customClass }: CardProps) {
+function Card({ children, type, customClass, style }: CardProps) {
     return (
         <div
+            style={style}
             className={clsx(
                 cn.card,
                 cn.plain,

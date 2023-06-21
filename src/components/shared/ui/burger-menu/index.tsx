@@ -4,7 +4,11 @@ import React, { useState } from 'react';
 
 import cn from './style.module.sass';
 
-function BurgerMenu() {
+interface IBurgerMenuProps {
+    children: React.ReactElement;
+}
+
+function BurgerMenu({ children }: IBurgerMenuProps) {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleToggle = () => {
@@ -16,19 +20,7 @@ function BurgerMenu() {
             <button type="button" className={cn.burgerMenuButton} onClick={handleToggle}>
                 <span className={clsx(cn.burgerMenuIcon, isOpen && cn.burgerMenuIconActive)} />
             </button>
-            {isOpen && (
-                <div className={cn.burgerMenuItems}>
-                    <a href="/" className={cn.burgerMenuItem}>
-                        Главная
-                    </a>
-                    <a href="/about" className={cn.burgerMenuItem}>
-                        О нас
-                    </a>
-                    <a href="/contacts" className={cn.burgerMenuItem}>
-                        Контакты
-                    </a>
-                </div>
-            )}
+            {isOpen && <div className={cn.burgerMenuItems}>{children}</div>}
         </div>
     );
 }

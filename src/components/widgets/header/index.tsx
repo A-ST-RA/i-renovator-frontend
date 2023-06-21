@@ -34,7 +34,19 @@ function Header() {
                     </ul>
                 </nav>
                 <div className={cn.burgerMenu}>
-                    <BurgerMenu />
+                    <BurgerMenu>
+                        <>
+                            <Link href="/" className={cn.burgerMenuItem}>
+                                Главная
+                            </Link>
+                            <Link href="/about" className={cn.burgerMenuItem}>
+                                О нас
+                            </Link>
+                            <Link href="/auth/login" className={clsx(cn.burgerMenuItem, cn.login)}>
+                                Вход/Регистрация
+                            </Link>
+                        </>
+                    </BurgerMenu>
                 </div>
                 <div className={cn.actions}>
                     <div className={cn.actionSelect}>

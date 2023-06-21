@@ -2,7 +2,10 @@
 @import 'media'
 
 .wrapper
+    position: sticky
+    top: 0
     padding: 20px 0
+    background: $main-background-gray
     border-bottom: 1px solid #E6E8EC
 
 .header
@@ -17,24 +20,28 @@
         margin-top: -16px
 
     & .actions
-        display: flex
-        justify-content: flex-end
+        display: none
+        +desktop
+            display: flex
+            justify-content: flex-end
 
-        & .actionSelect
-            display: none
-            +desktop
+            & .actionSelect
                 display: block
                 margin-right: 10px
                 width: 265px
 
-        & .actionButton
-            padding-top: 6px
-            height: 40px
+            & .actionButton
+                padding-top: 6px
+                height: 40px
 
     & .burgerMenu
         display: block
         +desktop
             display: none
+            
+                        
+        & .login
+            text-decoration: underline
 
     & .navigation
         margin: 0 40px

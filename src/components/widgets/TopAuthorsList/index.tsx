@@ -4,6 +4,7 @@ import React from 'react';
 
 import TopAuthorCard from '@/components/entities/top-author-card';
 import Button, { ButtonType } from '@/components/shared/ui/button';
+import Title from '@/components/shared/ui/title';
 
 import cn from './style.module.sass';
 
@@ -36,6 +37,7 @@ export default function TopAuthorsList({ authors }: ITopAuthorsListProps) {
 
     return (
         <div className={cn.topAuthorsList}>
+            <Title level={2} title="Топ авторов" customClass={cn.topAuthorsHeading} />
             <Splide hasTrack={false} options={splideOptions}>
                 <SplideTrack>
                     {authors.map((el, index) => (

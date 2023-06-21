@@ -6,30 +6,35 @@
   max-width: 192px
   min-width: 160px
   display: flex
-  background: #dedede !important
+  position: relative
+  object-fit: cover
   flex-direction: column
+  background-position: center
+  background-size: 100% 100% !important
+  color: #fff
   
   padding: 12px 10px 9px
 
   & .rankPlace
-    padding-bottom: 15px
+    display: flex
+    justify-content: space-between
+    align-items: center
     border-bottom: 1px solid $neutral-text-green
     margin-bottom: 40px
-  
-  & .avatar
-    width: 64px
-    height: 64px
-  
+
+  & .liked
+    animation: 0.3s ease-in-out likeAnim
+    
   & .authorDetails
     display: flex
     flex-direction: column
-    align-items: center
-    justify-content: space-between
+    align-items: flex-start
+    justify-content: flex-end
     flex-grow: 1
     
   & .authorInfo
     font-family: 'Poppins'
-    text-align: center
+    text-align: left
   
   & .authorName
   
@@ -40,3 +45,15 @@
       
     & .votesAmountText
       font-weight: 500
+    
+
+@keyframes likeAnim
+    0%
+        transform: scale(1)
+    
+    50%
+        transform: scale(1.2)
+    
+    100%
+        transform: scale(1)
+    
