@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
+import clsx from 'clsx';
 import React, { useState } from 'react';
 
 import cn from './style.module.sass';
@@ -13,7 +14,7 @@ function BurgerMenu() {
     return (
         <div className={cn.burgerMenu}>
             <button type="button" className={cn.burgerMenuButton} onClick={handleToggle}>
-                <span className={cn.burgerMenuIcon} />
+                <span className={clsx(cn.burgerMenuIcon, isOpen && cn.burgerMenuIconActive)} />
             </button>
             {isOpen && (
                 <div className={cn.burgerMenuItems}>
