@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable lodash/prefer-noop */
 import clsx from 'clsx';
@@ -6,6 +7,7 @@ import React from 'react';
 
 import ProfileInfo, { ProfileInfoProps } from '@/components/entities/profile-info';
 import VotingCardInfo from '@/components/entities/voting-card-info';
+import useLike from '@/components/shared/hooks/use-liked';
 import Button, { ButtonType } from '@/components/shared/ui/button';
 import Title from '@/components/shared/ui/title';
 
@@ -18,11 +20,13 @@ export interface TopVotingProps {
 
     dateOfEndVoting: string;
 
-    votingDetailsId: number;
+    votingDetailsId: string;
 
     votingDetailsName: string;
 
     creator: ProfileInfoProps;
+
+    customTitle?: string;
 }
 
 function TopVoting({
@@ -32,10 +36,23 @@ function TopVoting({
     amountOfVotes,
     votingDetailsName,
     creator,
+    customTitle = 'Экспресс проект',
 }: TopVotingProps) {
+    const { isLiked, vote } = useLike(votingDetailsId);
+
+    const customVote = () => {
+        if (isLiked) {
+            alert('Вы уже проголосовали за данный проект');
+            return;
+        }
+
+        vote();
+        alert('Спасибо, ваш голос учтен!');
+    };
+
     return (
         <div className={cn.topVoting}>
-            <Title level={2} title="Экспресс проект" customClass={cn.expressProject} />
+            <Title level={2} title={customTitle} customClass={cn.expressProject} />
             <div className={clsx(cn.title, cn.mobile)}>{votingDetailsName}</div>
             <div className={cn.content}>
                 <Image
@@ -60,12 +77,7 @@ function TopVoting({
                             customClass={cn.voteButton}
                             text="голосовать"
                             buttonType={ButtonType.Normal}
-                            onClick={() => {}}
-                        />
-                        <Button
-                            text="подробнее"
-                            buttonType={ButtonType.Bordered}
-                            onClick={() => {}}
+                            onClick={customVote}
                         />
                     </div>
                 </div>
