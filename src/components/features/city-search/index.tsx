@@ -27,7 +27,7 @@ function CitySearch() {
             isLoading={isLoading}
             onInputChange={setCity}
             // eslint-disable-next-line @typescript-eslint/no-misused-promises
-            onChange={e => push(`projects/city/${e.value}`)}
+            onChange={e => push(`/projects/city/${e.value}`)}
         />
     );
 }

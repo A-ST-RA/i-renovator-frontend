@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import '@/styles/index.sass';
 
 import { DehydratedState, Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { AppProps } from 'next/app';
+import App, { AppContext, AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import SEO from 'next-seo.config';
 import React, { useEffect, useState } from 'react';
@@ -48,9 +49,9 @@ function MyApp({ Component, pageProps }: AppProps<DehydratedProps>) {
 // Это отключает возможность выполнять автоматическую статическую оптимизацию,
 // в результате чего каждая страница в вашем приложении обрабатывается на стороне сервера.
 
-// MyApp.getInitialProps = async (appContext: AppContext) => {
-//     const appProps = await App.getInitialProps(appContext);
-//     return { ...appProps };
-// };
+MyApp.getInitialProps = async (appContext: AppContext) => {
+    const appProps = await App.getInitialProps(appContext);
+    return { ...appProps };
+};
 
 export default MyApp;

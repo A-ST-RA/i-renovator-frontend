@@ -3,8 +3,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import clsx from 'clsx';
 import Link from 'next/link';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 
+import useLike from '@/components/shared/hooks/use-liked';
 import Button, { ButtonType } from '@/components/shared/ui/button';
 import Card, { CardType } from '@/components/shared/ui/card';
 import TopRating from '@/components/shared/ui/top-rating';
@@ -26,14 +27,7 @@ interface IProjectCardProps {
 const nineteenVotes = 90000;
 
 export default function ProjectCard({ rankPlace, project }: IProjectCardProps) {
-    const [isLiked, setIsLiked] = useState(false);
-
-    useEffect(() => {
-        const likes = JSON.parse(localStorage.getItem('likes') || '[]') as string[];
-        if (likes.includes(project.votingDetailsId)) {
-            setIsLiked(true);
-        }
-    }, []);
+    const { isLiked, vote } = useLike(project.votingDetailsId);
 
     const sumOfVotes = useMemo(
         () =>
@@ -50,12 +44,6 @@ export default function ProjectCard({ rankPlace, project }: IProjectCardProps) {
         [project.amountOfVotes]
     );
 
-    const vote = (id: string) => {
-        const likes = JSON.parse(localStorage.getItem('likes') || '[]') as string[];
-        localStorage.setItem('likes', JSON.stringify([...new Set([...likes, id])]));
-        setIsLiked(true);
-    };
-
     return (
         <Card
             type={CardType.Plain}
@@ -68,7 +56,7 @@ export default function ProjectCard({ rankPlace, project }: IProjectCardProps) {
                     icon={isLiked ? '/images/svg/like.svg' : '/images/svg/like-grey.svg'}
                     buttonType={ButtonType.WhiteSpace}
                     customClass={clsx(isLiked && cn.liked, cn.particle)}
-                    onClick={() => vote(project.votingDetailsId)}
+                    onClick={vote}
                 />
             </div>
             <div className={cn.authorDetails}>

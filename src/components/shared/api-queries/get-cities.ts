@@ -1,19 +1,25 @@
 import Api from './axios.index';
 
 export interface ICity {
-    id: number;
     name: string;
     code: string;
+    description: string;
+    image: string;
 }
 
-async function getCities(likeLetters = ''): Promise<ICity[]> {
-    const { data } = await Api.get<ICity[]>('city', {
-        params: {
-            name_like: likeLetters,
-        },
-    });
+async function getCities(likeLetters = '', codeLetters = ''): Promise<ICity[]> {
+    try {
+        const { data } = await Api.get<ICity[]>('city', {
+            params: {
+                name_like: likeLetters,
+                code_like: codeLetters,
+            },
+        });
 
-    return data;
+        return data;
+    } catch (err) {
+        return [];
+    }
 }
 
 export default getCities;
