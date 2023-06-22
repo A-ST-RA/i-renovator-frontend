@@ -22,9 +22,10 @@ function ProjectList({ projects, customTitle = 'Все проекты' }: IProje
         <div className={cn.wrapper}>
             <Title level={2} title={customTitle} />
             <div className={cn.projectList}>
+                {projects.length === 0 && <p>Пока проектов нет</p>}
                 {projects.map((project, idx) => (
                     <div key={project.votingDetailsId} className={cn.project}>
-                        <ProjectCard project={project} rankPlace={idx} />
+                        <ProjectCard project={project} rankPlace={idx + 1} />
                     </div>
                 ))}
             </div>

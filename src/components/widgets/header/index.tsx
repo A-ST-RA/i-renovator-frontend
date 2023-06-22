@@ -13,13 +13,15 @@ function Header() {
     return (
         <div className={cn.wrapper}>
             <header className={cn.header}>
-                <Image
-                    className={cn.logo}
-                    src="/images/svg/i-renovator-logo.svg"
-                    alt="Я реноватор Лого"
-                    width={153}
-                    height={45}
-                />
+                <Link href="/">
+                    <Image
+                        className={cn.logo}
+                        src="/images/svg/i-renovator-logo.svg"
+                        alt="Я реноватор Лого"
+                        width={153}
+                        height={45}
+                    />
+                </Link>
                 <nav className={clsx(cn.navigation, cn.desktopNavigation)}>
                     <ul className={cn.menuList}>
                         <li className={cn.menuLink}>

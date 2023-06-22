@@ -8,40 +8,30 @@
 import React from 'react';
 
 import Layout from '@/components/layout';
-import { getCities } from '@/components/shared/api-queries';
 import getProjects from '@/components/shared/api-queries/get-projects';
 import Title from '@/components/shared/ui/title';
 import ProjectList from '@/components/widgets/project-list';
 
 import cn from './style.module.sass';
 
-function IndexPage({ city, projects }: any) {
+function IndexPage({ projects }: any) {
     return (
         <Layout>
             <>
-                <div
-                    className={cn.banner}
-                    style={{ background: `url(${city?.image}) center no-repeat` }}
-                />
                 <div className={cn.info}>
-                    <Title customClass={cn.title} level={1} title={city.name} />
-                    <p className={cn.description}>{city.description}</p>
+                    <Title customClass={cn.title} level={1} title="Все проекты платформы" />
                 </div>
-                <ProjectList projects={projects} customTitle="Проекты Региона" />
+                <ProjectList projects={projects} customTitle="" />
             </>
         </Layout>
     );
 }
 
-export async function getServerSideProps({ params }: any) {
-    const code = params.slug;
-
-    const cityInfo = await getCities('', code);
-    const projects = await getProjects(code);
+export async function getServerSideProps() {
+    const projects = await getProjects();
 
     return {
         props: {
-            city: cityInfo[0] || null,
             projects,
         },
     };

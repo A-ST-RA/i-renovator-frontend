@@ -62,7 +62,7 @@ export default function ProjectCard({ rankPlace, project }: IProjectCardProps) {
             <div className={cn.authorDetails}>
                 <div className={cn.authorInfo}>
                     <div>
-                        <Link href={`projects/${project.votingDetailsId}`}>
+                        <Link href={`/projects/details/${project.votingDetailsId}`}>
                             {project.votingDetailsName}
                         </Link>
                     </div>
