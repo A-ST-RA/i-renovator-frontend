@@ -45,6 +45,7 @@ function Header() {
                             <Link href="/auth/login" className={clsx(cn.burgerMenuItem, cn.login)}>
                                 Вход/Регистрация
                             </Link>
+                            <CitySearch />
                         </>
                     </BurgerMenu>
                 </div>

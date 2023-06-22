@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable lodash/prefer-noop */
+import clsx from 'clsx';
 import Image from 'next/image';
 import React from 'react';
 
@@ -35,6 +36,7 @@ function TopVoting({
     return (
         <div className={cn.topVoting}>
             <Title level={2} title="Экспресс проект" customClass={cn.expressProject} />
+            <div className={clsx(cn.title, cn.mobile)}>{votingDetailsName}</div>
             <div className={cn.content}>
                 <Image
                     className={cn.image}
@@ -45,7 +47,7 @@ function TopVoting({
                 />
                 <div className={cn.details}>
                     <div className={cn.nameAndCreator}>
-                        <div className={cn.title}>{votingDetailsName}</div>
+                        <div className={clsx(cn.title, cn.desktop)}>{votingDetailsName}</div>
                         <ProfileInfo imgSrc={creator.imgSrc} name={creator.name} id={creator.id} />
                     </div>
                     <VotingCardInfo

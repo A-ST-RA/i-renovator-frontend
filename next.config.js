@@ -30,7 +30,7 @@ const nextConfig = {
         disableStaticImages: true,
         dangerouslyAllowSVG: true,
         contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-        domains: ['img.freepik.com'],
+        domains: ['img.freepik.com', 'encrypted-tbn0.gstatic.com', 'cdn.iportal.ru'],
     },
 
     rewrites: async () => [
