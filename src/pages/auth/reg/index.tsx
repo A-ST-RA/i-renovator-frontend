@@ -35,13 +35,7 @@ function Reg() {
 
         await createUser(data);
 
-        const fdata = await authUser(data.login, data.password);
-
-        const token = fdata[0].id;
-
-        localStorage.setItem('token', token);
-        alert('Добро пожаловать');
-        await push('/');
+        await push('/auth/login');
     });
 
     return (
