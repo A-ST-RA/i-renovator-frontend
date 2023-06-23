@@ -3,20 +3,20 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { random } from 'lodash';
-import { nanoid } from 'nanoid';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 import CitySearch from '@/components/features/city-search';
 import createUser from '@/components/shared/api-queries/create-user';
+import { authUser } from '@/components/shared/api-queries/get-user';
 import Button, { ButtonType } from '@/components/shared/ui/button';
 import ImageToBase64Converter from '@/components/shared/ui/file-upload';
 import Input from '@/components/shared/ui/input';
 
 import cn from './style.module.sass';
-import { authUser } from '@/components/shared/api-queries/get-user';
 
 function Reg() {
     const { push } = useRouter();
@@ -40,7 +40,7 @@ function Reg() {
         const token = fdata[0].id;
 
         localStorage.setItem('token', token);
-        alert('Добро пожаловать')
+        alert('Добро пожаловать');
         await push('/');
     });
 
