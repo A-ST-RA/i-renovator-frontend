@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 import CitySearch from '@/components/features/city-search';
@@ -12,6 +14,7 @@ import cn from './style.module.sass';
 
 function Header() {
     const { token } = useToken();
+    const { push } = useRouter();
 
     return (
         <div className={cn.wrapper}>
@@ -69,11 +72,13 @@ function Header() {
                         <CitySearch />
                     </div>
                     <div className={cn.actionLogin}>
-                        {token ? (
+                        {!token ? (
                             <>
-                                <Link href="/projects/create">
-                                    <Button text="Создать" customClass={cn.actionButton} />
-                                </Link>
+                                <Button
+                                    text="Создать"
+                                    customClass={cn.actionButton}
+                                    onClick={() => push('/projects/create')}
+                                />
                                 <Button
                                     text="Выйти"
                                     customClass={cn.actionButton}
