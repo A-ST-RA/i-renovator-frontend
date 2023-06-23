@@ -72,7 +72,7 @@ function Header() {
                         <CitySearch />
                     </div>
                     <div className={cn.actionLogin}>
-                        {!token ? (
+                        {token ? (
                             <>
                                 <Button
                                     text="Создать"
