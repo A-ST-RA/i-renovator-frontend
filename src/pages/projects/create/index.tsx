@@ -15,7 +15,7 @@ import Input from '@/components/shared/ui/input';
 import cn from './style.module.sass';
 
 function Create() {
-    const { handleSubmit, control } = useForm();
+    const { register, handleSubmit, control } = useForm();
     const [base64Image, setBase64Image] = useState('');
     const [city, setCity] = useState();
 
@@ -24,7 +24,7 @@ function Create() {
         data.amountOfVotes = 0;
         data.dateOfEndVoting = 'Wed Oct 18 2023 12:00:00 GMT+0300 (Москва, стандартное время)';
         data.isActive = true;
-        data.votingDetailsName = uniqueId('project_');
+        data.votingDetailsId = uniqueId('project_');
         data.city = city.label;
 
         console.log(data);
@@ -52,12 +52,12 @@ function Create() {
                     name="votingDetailsName"
                     render={({ field }) => <Input placeholder="Название проекта" {...field} />}
                 />
-                <Controller
-                    control={control}
-                    name="description"
-                    render={({ field }) => <Input placeholder="Логин" {...field} />}
+                <textarea
+                    className={cn.input}
+                    rows={5}
+                    placeholder="Описание проекта"
+                    {...register('desctiption')}
                 />
-                <textarea className={cn.input} rows={5} placeholder="Описание проекта" />
                 <Button
                     isSubmit
                     customClass={cn.loginButton}
