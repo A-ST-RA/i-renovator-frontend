@@ -11,7 +11,7 @@ import Button from '@/components/shared/ui/button';
 import cn from './style.module.sass';
 
 function Header() {
-    const token = useToken();
+    const { token } = useToken();
 
     return (
         <div className={cn.wrapper}>
