@@ -70,9 +70,16 @@ function Header() {
                     </div>
                     <div className={cn.actionLogin}>
                         {token ? (
-                            <Link href="/projects/create">
-                                <Button text="Создать" customClass={cn.actionButton} />
-                            </Link>
+                            <>
+                                <Link href="/projects/create">
+                                    <Button text="Создать" customClass={cn.actionButton} />
+                                </Link>
+                                <Button
+                                    text="Выйти"
+                                    customClass={cn.actionButton}
+                                    onClick={() => localStorage.removeItem('token')}
+                                />
+                            </>
                         ) : (
                             <Link href="/auth/login">
                                 <Button text="Вход/Регистрация" customClass={cn.actionButton} />

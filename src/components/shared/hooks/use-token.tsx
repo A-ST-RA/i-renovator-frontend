@@ -5,7 +5,7 @@ function useToken() {
 
     useEffect(() => {
         setToken(localStorage.getItem('token') || '');
-    }, []);
+    }, [localStorage.getItem('token')]);
 
     return { token };
 }
