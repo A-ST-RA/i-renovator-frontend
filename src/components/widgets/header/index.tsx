@@ -4,12 +4,15 @@ import Link from 'next/link';
 import React from 'react';
 
 import CitySearch from '@/components/features/city-search';
+import useToken from '@/components/shared/hooks/use-token';
 import BurgerMenu from '@/components/shared/ui/burger-menu';
 import Button from '@/components/shared/ui/button';
 
 import cn from './style.module.sass';
 
 function Header() {
+    const token = useToken();
+
     return (
         <div className={cn.wrapper}>
             <header className={cn.header}>
@@ -44,6 +47,16 @@ function Header() {
                             <Link href="/about" className={cn.burgerMenuItem}>
                                 О нас
                             </Link>
+                            {token ? (
+                                <Link href="/projects/create">Создать</Link>
+                            ) : (
+                                <Link
+                                    href="/auth/login"
+                                    className={clsx(cn.burgerMenuItem, cn.login)}
+                                >
+                                    Вход/Регистрация
+                                </Link>
+                            )}
                             <Link href="/auth/login" className={clsx(cn.burgerMenuItem, cn.login)}>
                                 Вход/Регистрация
                             </Link>
@@ -56,9 +69,15 @@ function Header() {
                         <CitySearch />
                     </div>
                     <div className={cn.actionLogin}>
-                        <Link href="/auth/login">
-                            <Button text="Вход/Регистрация" customClass={cn.actionButton} />
-                        </Link>
+                        {token ? (
+                            <Link href="/projects/create">
+                                <Button text="Создать" customClass={cn.actionButton} />
+                            </Link>
+                        ) : (
+                            <Link href="/auth/login">
+                                <Button text="Вход/Регистрация" customClass={cn.actionButton} />
+                            </Link>
+                        )}
                     </div>
                 </div>
             </header>
