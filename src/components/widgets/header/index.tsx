@@ -52,7 +52,19 @@ function Header() {
                                 О нас
                             </Link>
                             {token ? (
-                                <Link href="/projects/create">Создать</Link>
+                                <>
+                                    <Link href="/projects/create">Создать</Link>
+                                    <Link
+                                        onClick={() => {
+                                            localStorage.removeItem('token');
+                                            push('/');
+                                        } }
+                                        className={clsx(cn.burgerMenuItem, cn.login)}
+                                        href=""
+                                    >
+                                        Выход
+                                    </Link>
+                                </>
                             ) : (
                                 <Link
                                     href="/auth/login"
