@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
+import getUsers from '@/components/shared/api-queries/get-user';
 import Button, { ButtonType } from '@/components/shared/ui/button';
 import Input from '@/components/shared/ui/input';
 
@@ -12,8 +13,18 @@ import cn from './style.module.sass';
 function Login() {
     const { handleSubmit, control } = useForm();
 
-    const onSubmit = handleSubmit(data => {
-        console.log(data);
+    const onSubmit = handleSubmit(async data => {
+        const fdata = await getUsers(data.login, data.password);
+        console.log(fdata);
+
+        if (fdata.length === 0) {
+            alert('Такой пользователь не найден');
+            return;
+        }
+
+        const token = fdata[0].id;
+
+        localStorage.setItem('token', token);
     });
 
     return (
