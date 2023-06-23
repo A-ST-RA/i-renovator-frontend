@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import clsx from 'clsx';
 import Image from 'next/image';
@@ -82,7 +83,10 @@ function Header() {
                                 <Button
                                     text="Выйти"
                                     customClass={cn.actionButton}
-                                    onClick={() => localStorage.removeItem('token')}
+                                    onClick={() => {
+                                        localStorage.removeItem('token');
+                                        push('/');
+                                    }}
                                 />
                             </>
                         ) : (
