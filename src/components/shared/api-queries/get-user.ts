@@ -18,6 +18,21 @@ async function getUsers(login = '', password = '') {
     }
 }
 
+export async function authUser(login = '', pass = '') {
+    try {
+        const { data } = await Api.get('users', {
+            params: {
+                login,
+                pass,
+            },
+        });
+
+        return data;
+    } catch (err) {
+        return [];
+    }
+}
+
 async function getUserById(id: string) {
     try {
         const { data } = await Api.get('users', {

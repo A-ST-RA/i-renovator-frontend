@@ -28,7 +28,6 @@ function Reg() {
         data.amountOfVotes = 0;
         data.dateOfEndVoting = 'Wed Oct 18 2023 12:00:00 GMT+0300 (Москва, стандартное время)';
         data.isActive = true;
-        data.votingDetailsId = nanoid();
         data.sumVotesAmount = 10;
         data.city = city.value;
 
@@ -55,7 +54,7 @@ function Reg() {
                 <Controller
                     control={control}
                     name="name"
-                    render={({ field }) => <Input placeholder="Логин" {...field} />}
+                    render={({ field }) => <Input placeholder="ФИО" {...field} />}
                 />
                 <Controller
                     control={control}

@@ -1,20 +1,22 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
-import getUsers from '@/components/shared/api-queries/get-user';
+import { authUser } from '@/components/shared/api-queries/get-user';
 import Button, { ButtonType } from '@/components/shared/ui/button';
 import Input from '@/components/shared/ui/input';
 
 import cn from './style.module.sass';
 
 function Login() {
+    const { push } = useRouter();
     const { handleSubmit, control } = useForm();
 
     const onSubmit = handleSubmit(async data => {
-        const fdata = await getUsers(data.login, data.password);
+        const fdata = await authUser(data.login, data.password);
         console.log(fdata);
 
         if (fdata.length === 0) {
@@ -25,6 +27,8 @@ function Login() {
         const token = fdata[0].id;
 
         localStorage.setItem('token', token);
+        alert('Добро пожаловать')
+        await push('/');
     });
 
     return (
@@ -48,7 +52,7 @@ function Login() {
                 <Controller
                     control={control}
                     name="password"
-                    render={({ field }) => <Input placeholder="Пароль" {...field} />}
+                    render={({ field }) => <Input type="password" placeholder="Пароль" {...field} />}
                 />
                 <Button
                     isSubmit
