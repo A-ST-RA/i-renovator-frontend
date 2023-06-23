@@ -184,10 +184,11 @@
   "top-voting": [],
   "projects": [
     {
+      "id": 1,
       "votingImage": "https://yandex.ru/images/search?from=tabbar&img_url=https%3A%2F%2Fobo-greem.ru%2Fthumb%2F2%2F1mNaVtEDopKxKi8EDJDaBg%2Fr%2Fd%2F__.jpg&lr=39&pos=4&rpt=simage&text=%D1%82%D1%80%D0%BE%D1%82%D1%83%D0%B0%D1%80%20%D1%81%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B3%D1%80%D0%B5%D0%B2%D0%BE%D0%BC%20",
-      "amountOfVotes": "2674",
+      "amountOfVotes": 2674,
       "dateOfEndVoting": "Wed Oct 18 2023 12:00:00 GMT+0300 (Москва, стандартное время)",
-      "votingDetailsId": "5482639",
+      "votingDetailsId": "1",
       "votingDetailsName": "Тратуар с подогревом",
       "description": "Суть проекта в прокладке нагревателей по тротуарам. Зимой, в период выпадения снега и гололеда, по таким тротуарам будет безопастно ходить ",
       "city": "oms",
@@ -204,10 +205,11 @@
       }
     },
     {
+      "id": 2,
       "votingImage": "https://avatars.mds.yandex.net/i?id=2e8f4ca44200f0cd994c5cef2fbc3c23eee59b0f-5869170-images-thumbs&n=13",
-      "amountOfVotes": "6543",
+      "amountOfVotes": 6544,
       "dateOfEndVoting": "Tue Sep 05 2023 14:00:00 GMT+0300 (Москва, стандартное время)",
-      "votingDetailsId": "2594768",
+      "votingDetailsId": "2",
       "votingDetailsName": "Солнечная заправка",
       "description": "Автостоянка где можно подзарядить телефон, набраться сил и электропитания. Все это происходит благодоря солнечным панелям, установленным на крыше ",
       "city": "rnd",
@@ -224,10 +226,11 @@
       }
     },
     {
+      "id": 3,
       "votingImage": "https://avatars.mds.yandex.net/i?id=e2e8dc00520dd427451b238e08a2a17fc43a05d8-8806475-images-thumbs&n=13",
-      "amountOfVotes": "5930",
+      "amountOfVotes": 5931,
       "dateOfEndVoting": "Thu Nov 02 2023 14:00:00 GMT+0300 (Москва, стандартное время)",
-      "votingDetailsId": "7938465",
+      "votingDetailsId": 3,
       "votingDetailsName": "Парк отдыха",
       "description": "Парк создан для работы на свежем воздухе а так же отдыха. В парке будет установлен бесплатный Wi-Fi ",
       "city": "rnd",
@@ -244,10 +247,11 @@
       }
     },
     {
+      "id": 4,
       "votingImage": "https://yandex.ru/images/search?from=tabbar&img_url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F05%2Fa6%2F10%2F05a6103bb18d3fcb7a4ee35f72691920.png&lr=39&pos=1&rpt=simage&text=%D0%BF%D0%BE%D0%B4%D0%B2%D0%BE%D0%B4%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%B0%D1%80%D0%BA%20%D0%BF%D0%BE%D0%B4%20%D1%81%D1%82%D0%B5%D0%BA%D0%BA%D0%BB%D0%BE%D0%BC",
-      "amountOfVotes": "10606",
+      "amountOfVotes": 10606,
       "dateOfEndVoting": "Sun Oct 22 2023 14:00:00 GMT+0300 (Москва, стандартное время)",
-      "votingDetailsId": "5382764",
+      "votingDetailsId": 4,
       "votingDetailsName": "Парк под водой",
       "description": "Для изучение водной флоры и фауны предлагается построить парк под водой. Для безопастности людей панормый вид будет обеспечивать утолщенное стекло ",
       "city": "cpb",
@@ -264,10 +268,11 @@
       }
     },
     {
+      "id": 5,
       "votingImage": "https://yandex.ru/images/search?from=tabbar&img_url=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Ff0%2F06%2Fb6%2Ff006b636c5e2e8f52a47590430b47339.jpg&lr=39&pos=16&rpt=simage&text=%D0%BD%D0%B5%D0%BE%D0%B1%D1%8B%D1%87%D0%BD%D1%8B%D0%B5%20%D0%B2%D0%BE%D0%B4%D0%BE%D0%B5%D0%BC%D1%8B%20%D0%B2%20%D0%BF%D0%B0%D1%80%D0%BA%D0%B0%D1%85",
-      "amountOfVotes": "4 670",
+      "amountOfVotes": 4670,
       "dateOfEndVoting": "Mon Jan 01 2024 01:00:00 GMT+0300 (Москва, стандартное время)",
-      "votingDetailsId": "3865972",
+      "votingDetailsId": 5,
       "votingDetailsName": "Береговая линия",
       "description": "Иногда так хочется погулять не просто по берегу, а зайти чуть дальше по воде. Этот проект позволит благоустроить береговую линию водоемов",
       "city": "ufa",

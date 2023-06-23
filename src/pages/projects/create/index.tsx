@@ -3,7 +3,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import { random } from 'lodash';
-import { nanoid } from 'nanoid';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
@@ -29,7 +28,7 @@ function Create() {
         data.amountOfVotes = 0;
         data.dateOfEndVoting = 'Wed Oct 18 2023 12:00:00 GMT+0300 (Москва, стандартное время)';
         data.isActive = true;
-        data.votingDetailsId = nanoid();
+        data.votingDetailsId = data.id;
         data.city = city.label;
 
         const tokenData = localStorage.getItem('token') || '';

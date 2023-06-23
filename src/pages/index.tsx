@@ -11,11 +11,11 @@
 import React from 'react';
 
 import Layout from '@/components/layout';
+import getProjects from '@/components/shared/api-queries/get-projects';
 import Greeting from '@/components/widgets/greeting';
 import ProjectList from '@/components/widgets/project-list';
 import TopAuthorsList from '@/components/widgets/TopAuthorsList';
 import TopVoting from '@/components/widgets/TopVoting';
-import getProjects from '@/components/shared/api-queries/get-projects';
 
 function IndexPage({ projects }: any) {
     return (

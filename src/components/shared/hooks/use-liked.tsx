@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import { incrementProjectById } from '../api-queries/get-projects';
+
 function useLike(id: string) {
     const [isLiked, setIsLiked] = useState(false);
 
@@ -10,9 +12,11 @@ function useLike(id: string) {
         }
     }, [id]);
 
-    const vote = () => {
+    const vote = async () => {
         const likes = JSON.parse(localStorage.getItem('likes') || '[]') as string[];
         localStorage.setItem('likes', JSON.stringify([...new Set([...likes, id])]));
+
+        await incrementProjectById(id);
         setIsLiked(true);
     };
 
