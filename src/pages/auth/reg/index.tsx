@@ -16,8 +16,10 @@ import ImageToBase64Converter from '@/components/shared/ui/file-upload';
 import Input from '@/components/shared/ui/input';
 
 import cn from './style.module.sass';
+import { authUser } from '@/components/shared/api-queries/get-user';
 
 function Reg() {
+    const { push } = useRouter();
     const { register, handleSubmit, control } = useForm();
     const [base64Image, setBase64Image] = useState('');
     const [city, setCity] = useState();
@@ -32,6 +34,14 @@ function Reg() {
         data.city = city.value;
 
         await createUser(data);
+
+        const fdata = await authUser(data.login, data.password);
+
+        const token = fdata[0].id;
+
+        localStorage.setItem('token', token);
+        alert('Добро пожаловать')
+        await push('/');
     });
 
     return (
