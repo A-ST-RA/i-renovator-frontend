@@ -12,11 +12,12 @@ import React from 'react';
 import Layout from '@/components/layout';
 import getProjects from '@/components/shared/api-queries/get-projects';
 import Title from '@/components/shared/ui/title';
+import ProjectList from '@/components/widgets/project-list';
 import TopVoting from '@/components/widgets/TopVoting';
 
 import cn from './style.module.sass';
 
-function IndexPage({ project }: any) {
+function IndexPage({ project, projects }: any) {
     return (
         <Layout>
             <>
@@ -25,7 +26,7 @@ function IndexPage({ project }: any) {
                     <p className={cn.description}>{project.description}</p>
                 </div>
                 <TopVoting {...project} customTitle="Обзор проекта" />
-                {/* <ProjectList projects={projects} customTitle="Проекты Региона" /> */}
+                <ProjectList projects={projects} customTitle="Еще проекты региона" />
             </>
         </Layout>
     );
@@ -35,10 +36,12 @@ export async function getServerSideProps({ params }: any) {
     const code = params.slug;
 
     const project = await getProjects('', code);
+    const projects = await getProjects(project[0].city);
 
     return {
         props: {
             project: project[0],
+            projects,
         },
     };
 }

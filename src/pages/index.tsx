@@ -1,15 +1,23 @@
-/* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable no-secrets/no-secrets */
+/* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable max-len */
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable react/jsx-no-useless-fragment */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable no-magic-numbers */
 import React from 'react';
 
 import Layout from '@/components/layout';
 import Greeting from '@/components/widgets/greeting';
+import ProjectList from '@/components/widgets/project-list';
 import TopAuthorsList from '@/components/widgets/TopAuthorsList';
 import TopVoting from '@/components/widgets/TopVoting';
+import getProjects from '@/components/shared/api-queries/get-projects';
 
-function IndexPage() {
+function IndexPage({ projects }: any) {
     return (
         <Layout>
             <>
@@ -17,7 +25,7 @@ function IndexPage() {
                 <TopVoting
                     amountOfVotes={10}
                     dateOfEndVoting={new Date(2023, 6, 24, 18).toString()}
-                    votingDetailsId={12}
+                    votingDetailsId="12"
                     votingDetailsName="Остановка"
                     votingImage="https://img.freepik.com/free-photo/blank-billboard-on-bus-stop-shelter-at-night_23-2147873358.jpg?w=1380&t=st=1687375988~exp=1687376588~hmac=de00443da811b08182ec61449ffdc6a3519759dbc634b10034c3d45bf2cf926b"
                     creator={{
@@ -60,9 +68,20 @@ function IndexPage() {
                         },
                     ]}
                 />
+                <ProjectList projects={projects} customTitle="Список проектов" />
             </>
         </Layout>
     );
+}
+
+export async function getServerSideProps() {
+    const projects = await getProjects();
+
+    return {
+        props: {
+            projects,
+        },
+    };
 }
 
 export default IndexPage;

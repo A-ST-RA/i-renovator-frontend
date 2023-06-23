@@ -9773,6 +9773,11 @@ react-element-to-jsx-string@^15.0.0:
     is-plain-object "5.0.0"
     react-is "18.1.0"
 
+react-hook-form@7.45.0:
+  version "7.45.0"
+  resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.45.0.tgz"
+  integrity sha512-AbHeZ4ad+0dEIknSW9dBgIwcvRDfZ1O97sgj75WaMdOX0eg8TBiUf9wxzVkIjZbk76BBIE9lmFOzyD4PN80ZQg==
+
 react-inspector@^6.0.0:
   version "6.0.1"
   resolved "https://registry.npmjs.org/react-inspector/-/react-inspector-6.0.1.tgz"

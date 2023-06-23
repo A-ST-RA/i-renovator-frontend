@@ -1,0 +1,46 @@
+@import 'variables'
+@import 'media'
+    
+.login
+    width: 100vw
+    height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+
+    & .logo
+        position: absolute
+        
+        top: 26px
+        left: 50%
+        transform: translateX(-50%)
+        +desktop
+            transform: none
+            left: 200px
+
+    & .loginText
+        color: #000
+        font: 700 24px/32px Roboto
+        margin-bottom: 27px
+
+    & .loginForm
+        flex-direction: column
+        display: flex
+        justify-content: center
+        align-items: center
+        
+        & input
+            margin-bottom: 27px
+    
+    & .loginButton
+        height: 40px
+        padding-top: 6px
+        margin-bottom: 27px
+        
+        width: 100%
+        +desktop
+            width: 180px
+
+        +tablet
+            width: 180px
