@@ -37,7 +37,7 @@ function Login() {
                 <Controller
                     control={control}
                     name="password"
-                    render={({ field }) => <Input placeholder="Логин" {...field} />}
+                    render={({ field }) => <Input placeholder="Пароль" {...field} />}
                 />
                 <Button
                     isSubmit

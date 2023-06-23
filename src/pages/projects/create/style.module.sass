@@ -3,11 +3,27 @@
     
 .login
     width: 100vw
-    height: 100vh
+    min-height: 100vh
     display: flex
     justify-content: center
     align-items: center
     flex-direction: column
+    
+    .input 
+        padding: 8px 16px
+        border: 2px solid #3772FF
+        border-radius: 10px
+        width: 260px !important
+        outline: none
+        transition: border-color 0.2s ease-in-out
+        margin-bottom: 27px
+
+        &:focus 
+            border-color: #4C9AFF
+    
+    & .citySearch
+        width: 260px
+        margin-bottom: 27px
 
     & .logo
         position: absolute
