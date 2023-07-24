@@ -27,7 +27,7 @@
         "dompurify": "3.0.1",
         "form-data": "4.0.0",
         "lodash": "4.17.21",
-        "mobx": "^6.9.0",
+        "mobx": "^6.10.0",
         "mobx-react-lite": "3.4.3",
         "modern-normalize": "1.1.0",
         "nanoid": "^4.0.2",
